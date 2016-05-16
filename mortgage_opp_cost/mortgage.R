@@ -1,5 +1,3 @@
-# BAT 18apr2014
-
 # Determine Required Home Appreciation
 # to equate to an equivalent investment
 
@@ -11,11 +9,11 @@ library(reshape2)
 # ----------------
 
   m <- list(
-    price = 500000,
-    down  = 50000,  
-    tax   = 417,
-    insur = 62.5,  
-    int   = .05)
+    price = 100000,
+    down  = 10000,  
+    tax   = 200,
+    insur = 50,  
+    int   = .04)
   m$loan  <- m$price - m$down
   m$close <- m$price * 0.025
   m$rate  <- 1 + m$int / 12
@@ -24,7 +22,7 @@ library(reshape2)
 # Prior Rent with 2% increase each year
 # -------------------------------------
  
-  r       <- list(pay = 2350, insur = 10)
+  r       <- list(pay = 2000, insur = 10)
   rent    <- c(r$pay, 1:360)
   newyear <- 0:360 %% 12 == 0
   for (i in 2:361) {
@@ -32,11 +30,11 @@ library(reshape2)
   }
   rent <- rent + r$ins
 
-# Personal Situation
-# ------------------
+# Individual Req's/Restraints
+# ---------------------------
   
   ret <- 0.08     # Required return
-  tax <- 0.28     # Marignal tax rate
+  tax <- 0.25     # Marignal tax rate
 
 # Amortization Table
 # ------------------
